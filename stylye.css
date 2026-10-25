@@ -1,0 +1,1228 @@
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family: 'Cinzel', serif;
+   background-color: rgba(123, 123, 123, 0.823);
+    padding-top:90px;
+}
+
+
+@font-face {
+    font-family: teste ;
+    src: url(fonts/Modern\ Prestige\ DEMO.otf);
+}
+
+
+
+
+
+/* ===== HEADER ===== */
+/* =========================================
+   DESKTOP NAVBAR ONLY
+========================================= */
+
+@media (min-width: 769px) {
+
+    /* ===== HEADER ===== */
+    header {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        padding: 10px 45px;
+        box-sizing: border-box;
+    }
+
+    /* ===== LOGO ===== */
+    .logo {
+        grid-column: 2;
+        grid-row: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+    }
+
+    .logo img {
+        width: 250px;
+        display: block;
+    }
+
+    /* ===== NAVBAR ===== */
+    .main-navbar {
+        grid-column: 1 / 4;
+        grid-row: 1;
+        width: 100%;
+    }
+
+
+
+    
+    /* ===== MENU ===== */
+    .main-menu {
+        width: 100%;
+        display: grid;
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, 1fr)
+            290px
+            minmax(0, 1fr)
+            minmax(0, 1fr);
+
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        column-gap: 25px;
+    }
+
+    /* ===== LI ===== */
+    .main-menu li {
+        list-style: none;
+        padding: 10px 8px;
+        text-align: center;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+        white-space: nowrap;
+    }
+
+    .main-menu li:nth-child(1) {
+        grid-column: 1;
+    }
+
+    .main-menu li:nth-child(2) {
+        grid-column: 2;
+    }
+
+    .main-menu li:nth-child(3) {
+        grid-column: 4;
+    }
+
+    .main-menu li:nth-child(4) {
+        grid-column: 5;
+    }
+
+    /* ===== HOVER ===== */
+    .main-menu li:hover {
+        transform: translateY(-2px);
+    }
+
+    /* ===== LINKS ===== */
+    .main-menu li a {
+        position: relative;
+        display: inline-block;
+        text-decoration: none;
+        color:  rgba(123, 123, 123, 0.823);
+        font-size: 17px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+    }
+
+    /* ===== UNDERLINE ===== */
+    .main-menu li a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 100%;
+        height: 2px;
+        background: #f4f4f4;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.3s ease;
+    }
+
+    .main-menu li:hover a::after {
+        transform: scaleX(1);
+    }
+
+}
+/* ===== MENU BUTTON ===== */
+.menu-toggle {
+    display: none;
+}
+
+
+
+
+/* ===== MOBILE ONLY ===== */
+@media (max-width:768px){
+
+
+/* LOGO */
+.logo img{
+    width:320px;
+    margin-bottom:20px;
+}
+
+
+
+
+    /* زر يظهر فقط في الهاتف */
+    .menu-toggle{
+    width:60%;          /* أصغر من قبل */
+    max-width:220px;    /* حد أقصى أصغر */
+
+    height:40px;        /* أقل ارتفاع */
+
+    margin-top:10px;
+
+    background:linear-gradient(to bottom, #a8e8ba, #76c993);
+        
+    border:none;
+    border-radius:10px;
+
+    color:white;
+    font-size:18px;     /* نص أصغر */
+    font-weight:bold;
+
+    cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    box-shadow:0 3px 10px rgba(0,0,0,0.2);
+}
+
+    /* نخفي النافبار ونخليه dropdown */
+    .main-navbar{
+        display:none;
+        position:fixed;
+        top:60px;
+        right:20px;
+
+        width:250px;
+        background: #76c993;
+
+        flex-direction:column;
+        border-radius:12px;
+        overflow:hidden;
+
+        box-shadow:0 10px 25px rgba(0,0,0,0.2);
+
+        z-index:1500;
+        animation:fadeIn 0.2s ease;
+    }
+
+    .main-navbar.active{
+        display:flex;
+    }
+
+    .main-menu{
+        flex-direction:column;
+        width:100%;
+        background-color: #76c993;
+    }
+
+    .main-menu li{
+        width:100%;
+        padding:12px;
+        border-bottom:1px solid rgba(255,255,255,0.1);
+        background:none;
+    }
+
+    .main-menu li a{
+        color:rgb(0, 0, 0);
+    }
+
+    .main-menu li:hover{
+        background:rgba(255,255,255,0.1);
+    }
+
+    .hero-title h2{
+        font-size:70px;
+    }
+}
+
+/* animation */
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(-10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+.hero img{
+    width:100%;
+    display:block;
+}
+.title-box h2{
+    width:100%;
+    text-align:center;
+    background-color:#000000;
+    color:#fff;
+    padding:20px 10px;
+    margin:0px 0;
+    font-size:20px;
+    letter-spacing:3px;
+}
+@media (max-width:768px){
+    .title-box h2{
+        font-size:16px;
+        padding:14px 8px;
+    }
+}
+.about-section{
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    padding: 40px 20px;
+    background: linear-gradient(to  rgba(123, 123, 123, 0.823));
+    border-radius: 10px;
+    margin: 0;
+}
+
+/* الصورة */
+.about-section img{
+    width: 550px;
+    height: 650px;
+    object-fit: cover;
+    border-radius: 90px;
+    padding: 20px 30px;
+    margin-left: 30px;
+    margin-right: 20px;
+}
+
+/* النص */
+.about-text{
+    flex: 1;
+}
+
+/* العنوان */
+.about-text h3{
+    font-family: 'Roboto', sans-serif;
+    color: #000000;
+    text-align: left;
+    font-size: 62px;
+    font-weight: 700;
+    padding: 20px 40px;
+
+/* نفس بداية الفقرة */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 50px;   /* نفس padding-left الخاص بـ p */
+    padding-right: 130px; /* نفس padding-right الخاص بـ p */
+
+    margin-left: 70px;    /* نفس margin-left الخاص بـ p */
+    margin-top: 0;
+    margin-bottom: 20px;
+
+}
+
+/* الفقرات */
+.about-text p{
+    font-family: 'Roboto', sans-serif;
+    color: #663535;
+    font-size: 19px;
+    line-height: 1.9;
+    margin-bottom: 25px;
+    text-align: justify;
+    padding-left: 50px;
+    padding-right: 130px;
+    margin-left: 70px;
+}
+
+#imgh {
+    display: flex;
+    justify-content: center;  /* توسيط أفقي */
+    align-items: center;      /* توسيط عمودي إذا احتجت */
+}
+
+#imgh img {
+    width: 300px;
+    height: auto;
+    object-fit: cover;
+}
+
+
+/* =========================
+   Responsive للهاتف
+   ========================= */
+@media (max-width: 768px){
+
+    /* الصورة فوق والنص تحت */
+    .about-section{
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 15px;
+        gap: 20px;
+    }
+
+    /* الصورة تتكيف مع عرض الهاتف */
+    .about-section img{
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        margin: 0;
+        padding: 10px;
+        border-radius: 40px;
+    }
+
+    /* النص يأخذ كامل العرض */
+    .about-text{
+        width: 100%;
+    }
+
+    /* عنوان الهاتف */
+    .about-text h3{
+        font-family: 'teste', cursive;
+        font-size: 45px;
+        text-align: center;   /* بدل center */
+        margin-left: 0;
+        padding-left: 15px; /* نفس padding الخاص بـ p في الهاتف */
+        padding-right: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    /* الفقرات في الهاتف */
+    .about-text p{
+        font-size: 17px;
+        line-height: 1.8;
+        text-align: left;
+        direction: ltr;
+        margin: 0 0 20px 0;
+        padding: 0 15px;
+        width: auto;
+    }
+
+    
+}
+
+
+/* =========================
+   HEADER FIXE
+   يبقى الهيدر ثابتًا في أعلى الصفحة أثناء التمرير
+   ========================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+
+    background:rgb(0, 0, 0);
+    text-align:center;
+    padding-top:8px;
+
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);
+}
+
+/* حتى لا يختفي محتوى الصفحة خلف الهيدر الثابت */
+body{
+    padding-top:90px; /* عدّل القيمة حسب ارتفاع الهيدر */
+}
+/* العناصر الفارغة في بداية ونهاية القائمة */
+.main-menu .nav-spacer{
+    flex: 0 0 4%;     /* عرض صغير وثابت */
+    background: linear-gradient(to bottom, #a8e8ba, #76c993);
+    padding: 10px 0;
+}
+
+/* العناصر التي تحتوي على الروابط تبقى كبيرة ومتساوية */
+.main-menu li:not(.nav-spacer){
+    flex: 1;
+}
+
+/* زر ☰ بشكل حبة قهوة ☕ حديث */
+.menu-toggle{
+    display:none;
+
+    position:fixed;
+    top:15px;
+    right:20px;
+
+    width:55px;
+    height:55px;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:22px;
+    color:#fff;
+
+    background:linear-gradient(145deg, #a8e8ba, #76c993);
+    border:none;
+    border-radius:50%;
+
+    cursor:pointer;
+    box-shadow:0 6px 15px rgba(0,0,0,0.25);
+
+    transition:0.3s;
+}
+
+/* تأثير عند المرور */
+.menu-toggle:hover{
+    transform:scale(1.08);
+    box-shadow:0 8px 20px rgba(0,0,0,0.35);
+}
+
+/* تأثير عند الضغط */
+.menu-toggle:active{
+    transform:scale(0.95);
+}
+
+/* الزر مخفي في الحاسوب */
+.menu-toggle{
+    display:none;
+}
+
+
+
+/* يظهر فقط في الهاتف */
+@media (max-width:768px){
+    .menu-toggle{
+        display:flex; /* أو block */
+    }
+}
+
+/* صندوق الشريط المتحرك */
+.title-box{
+    width:100%;
+    background-color:#000000;
+    overflow:hidden;          /* إخفاء النص الخارج */
+    white-space:nowrap;       /* إبقاء النص في سطر واحد */
+    padding:0px 0;
+}
+
+/* النصوص المتحركة */
+.title-box h2{
+    display:inline-block;
+    color:#ffffff;
+    font-size:20px;
+    letter-spacing:3px;
+    margin:0;
+    
+    animation:marquee 10s linear infinite;
+}
+
+/* الحركة المستمرة بدون توقف */
+@keyframes marquee{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-100%);
+    }
+}
+
+/* الهاتف */
+@media (max-width:768px){
+    .title-box{
+        padding:14px 0;
+    }
+
+    .title-box h2{
+        font-size:12px;
+        letter-spacing:1px;
+        padding-right:90px;
+        animation-duration:10s;
+
+    }
+}
+
+
+
+.section-title{
+    width: 100%;
+    text-align: center;   /* توسيط العنوان أفقياً */
+    margin: 40px 0 20px;  /* مسافة فوق وتحت *//* الخلفية الخضراء */
+    
+
+    gap:30px;
+    align-items:flex-start;
+    padding:40px 20px;
+
+    /* الخلفية الخضراء */
+    background: linear-gradient(to  rgb(123, 123, 123));
+
+    border-radius:10px;
+    margin:0px 0%;
+
+}
+
+.section-title h2{
+    margin: 0;
+    font-size: 65px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    letter-spacing: 2px;
+}
+
+
+
+
+
+
+.map-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    aspect-ratio: 16 / 9;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 0;
+    border-radius: 15px;
+}
+
+
+
+
+/* الهاتف */
+@media (max-width: 768px) {
+
+    .map-container {
+        width: 95%;
+        margin: 30px auto;
+    }
+
+    .map-container iframe {
+        width: 100%;
+        height: 300px;
+        border-radius: 18px;
+    }
+
+    
+}
+
+
+.about-section {
+  position: relative;
+  z-index: 0;
+}
+
+.about-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color:  rgb(123, 123, 123);
+  z-index: -1;
+}
+
+
+
+
+
+
+.menu-toggle{
+    width:100%;
+    max-width:720px;
+
+    height:20px;
+
+    margin-top:77px; /* تحت اللوجو */
+
+right: 0px;
+
+    background:linear-gradient(to bottom, #a8e8ba, #76c993);
+
+    border:none;
+    border-radius:0px;
+
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    box-shadow:0 3px 10px rgba(0,0,0,0.2);
+}
+
+
+
+.menu-toggle{
+    display:none;
+}
+
+@media (max-width:768px){
+    .menu-toggle{
+        display:flex;
+    }
+
+
+
+
+    
+}
+
+
+
+
+/* ===== Typeform Container ===== */
+.typeform-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px;
+}
+
+.typeform-container iframe {
+    width: 100%;
+    max-width: 700px;
+    height: 600px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Form ===== */
+.form-box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Name + Email Row */
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+/* Input Fields */
+.field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+/* Message Field */
+.field.full {
+    width: 80%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* فقط في الشاشات الكبيرة:
+   نجعل صف name و email بنفس عرض .field.full */
+@media (min-width: 601px) {
+    .row {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+/* Inputs and Textarea */
+input,
+textarea {
+    border: none;
+    outline: none;
+    padding: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 4px;
+    resize: none;
+}
+
+/* Submit Button */
+button {
+    padding: 10px;
+    border: none;
+    background: #663535;
+    color: white;
+    cursor: pointer;
+    border-radius: 20px;
+    width: 50%;
+    margin: 0 auto;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #4f2828;
+}
+
+.vn{
+    background-color: #76c993;
+}
+
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 600px) {
+    .typeform-container {
+        padding: 20px 10px;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .field,
+    .field.full {
+        width: 100%;
+        margin: 0;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .typeform-container iframe {
+        height: 400px;
+    }
+}
+
+
+
+
+
+.footer {
+    background: #000000;
+    color: white;
+    padding: 20px;
+    margin-top: 0px;
+}
+
+/* كل العناصر في سطر واحد */
+.title-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 360px;
+    flex-wrap: wrap;
+    flex-direction: row-reverse; /* يعكس ترتيب العناصر */
+    text-align: center;
+}
+
+/* العناوين */
+.title-box h4 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* الأيقونات */
+.social-icons {
+    display: flex; 
+    gap: 20px;
+    padding-right: 140px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 28px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+    color: #f5d6d6;
+}
+
+/* الصورة */
+.title-box img {
+    width: 70px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .title-box {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .title-box img {
+        width: 60px;
+    }
+
+.social-icons{
+    display: flex;
+    justify-content: center; /* توسيط أفقي */
+    align-items: center;     /* توسيط عمودي */
+    gap: 20px;
+
+    padding-right: 0; /* حذف الإزاحة */
+    width: 100%;
+}
+
+    
+}
+
+
+
+
+
+
+.fond{
+font-family:'teste', cursive;
+
+}
+#fond{
+    font-family:'teste', cursive;
+}
+
+
+@font-face {
+    font-family: 'teste';
+    src: url('fonts/Modern Prestige DEMO.otf') format('opentype');
+    font-display: swap;
+}
+
+/* الكلاس */
+.fond{
+    font-family: 'teste', cursive;
+}
+
+/* الـ id */
+#fond{
+    font-family: 'teste', cursive;
+}
+
+/* تحسين التوافق مع الهواتف */
+@media screen and (max-width: 768px){
+    .fond,
+    #fond{
+        font-family: 'teste', cursive;
+    }
+}
+
+
+
+
+
+.social-fixed {
+    position: fixed;
+    right: 20px;
+    bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
+}
+
+.social {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px);
+
+    text-decoration: none;
+    font-size: 20px;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+
+    transition: all 0.35s ease;
+}
+
+.social span {
+    position: absolute;
+    right: 45px;
+
+    opacity: 0;
+    white-space: nowrap;
+
+    padding: 8px 14px;
+    border-radius: 20px;
+
+    background: white;
+    color: rgb(102, 53, 53);
+
+    font-size: 14px;
+    font-weight: bold;
+
+    transform: translateX(10px);
+    transition: all 0.35s ease;
+}
+
+/* عند المرور */
+.social:hover {
+    width: 165px;
+    border-radius: 25px;
+    transform: translateX(-3px);
+}
+
+.social:hover span {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* الألوان */
+.instagram {
+    color: #E1306C;
+}
+
+.snapchat {
+    color: #111;
+}
+
+.tiktok {
+    color: #000;
+}
+
+.social-fixed {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.social-fixed.hide-social {
+    opacity: 0;
+    transform: translateY(30px);
+    pointer-events: none;
+}
+
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 650px;
+    overflow: hidden;
+}
+
+.hero video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* 📱 الهاتف */
+@media (max-width: 768px) {
+    .hero {
+        height: 65vh;
+        min-height: 400px;
+    }
+
+    .hero video {
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+/* 💻 الحاسوب */
+@media (min-width: 769px) {
+    .hero {
+        height: 650px;
+    }
+
+    .hero video {
+        object-fit: cover;
+        object-position: center center;
+    }
+}
+
+
+
+
+
+
+
+
+
+#sect1 {
+
+/* الخلفية الخضراء */
+    background: linear-gradient(to rgba(123, 123, 123, 0.823));
+
+    }
+
+
+
+.acab {
+
+    font-size: 65px;
+}
+
+
+
+
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem 2rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.14);
+}
+
+.card-img-top {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.card-body {
+  padding: 1rem 1.2rem;
+  flex: 1;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* الهاتف: بطاقة واحدة فوق الأخرى */
+@media (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+  
+}
+
+
+.has {
+
+
+text-align: center;
+  font-size: 4.8rem;
+  color: #2b1b12;
+  margin: 1.5rem auto 2rem;
+
+
+
+}
+
+
+
+#TROUVER {
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 8px;
+}
+
+
+#CONTACTER {
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 8px;
+}
+
+
+
+
+
+
+
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #000;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(0px) brightness(0.5);
+  transform: scale(); /* يخفي حواف التمويه */
+}
+
+.hero-video {
+  position: relative;
+  height: 110vh;
+  aspect-ratio: 9 / 16;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.hero-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* الهاتف: ملء الشاشة بدون إطار */
+@media (max-width: 768px) {
+  .hero-bg { display: none; }
+  .hero-video {
+    width: 100%;
+    height: 100vh;
+    aspect-ratio: auto;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+.main-menu li a {
+    display: inline-block;
+    white-space: normal;
+    max-width: 100px;
+    text-align: center;
+    overflow-wrap: normal;
+}
+
+
+
+@media (max-width: 1100px) {
+    .main-menu li a {
+        display: inline-block;
+        max-width: 100px;
+        white-space: normal;
+        text-align: center;
+    }
+}
+
+
+
+
